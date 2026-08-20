@@ -41,7 +41,7 @@ pnpm build
 3. Configura le chiavi Stripe e le mappe server-side `STRIPE_PRICE_MAP` e `STRIPE_SHIPPING_RATE_MAP`; abilita webhook e verifica prezzi, imposte, promozioni e le quattro zone di spedizione in ambiente di test.
 4. Configura Resend con dominio e mittente verificati.
 5. Inserisci gli identificativi pubblici Usercentrics, GA4 e Meta solo dopo avere completato la configurazione del consenso.
-6. Imposta `NEXT_PUBLIC_SITE_URL` con l'URL definitivo prima della build di produzione.
+6. Imposta `NEXT_PUBLIC_SITE_URL` con l'URL definitivo prima della build di produzione. Su Vercel, se non è presente, viene usato automaticamente il dominio di produzione del progetto.
 
 Tutte le variabili previste sono documentate in `.env.example`. Nessuna chiave segreta deve essere esposta con il prefisso `NEXT_PUBLIC_`.
 

@@ -1,4 +1,10 @@
 const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+const resolvedUrl = configuredUrl
+  ? configuredUrl
+  : vercelProductionUrl
+    ? `https://${vercelProductionUrl}`
+    : "http://localhost:3000";
 
 export const siteConfig = {
   name: "Sbrilluccica",
@@ -6,7 +12,7 @@ export const siteConfig = {
     it: "Gioielli indipendenti dal carattere luminoso, selezionati a Roma e ispirati agli incontri tra culture.",
     en: "Independent jewellery with a bright point of view, selected in Rome and inspired by encounters between cultures.",
   },
-  url: configuredUrl ? configuredUrl.replace(/\/$/, "") : "http://localhost:3000",
+  url: resolvedUrl.replace(/\/$/, ""),
   supportEmail: "sbrilluccica@gmail.com",
   instagram: "https://www.instagram.com/sbrilluccica_______/",
 } as const;
