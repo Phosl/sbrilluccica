@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f8f3ec;
+  --paper: #fffdf9;
+  --ink: #2d2623;
+  --muted: #756963;
+  --rose: #b96572;
+  --rose-deep: #8d4450;
+  --rose-soft: #ead2d3;
+  --sage: #a8ad99;
+  --gold: #bd9259;
+  --line: #dfd4cc;
+  --font-sans-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display-stack: Iowan Old Style, Baskerville, "Times New Roman", serif;
+}
+
+@theme inline {
+  --color-background: var(--ivory);
+  --color-foreground: var(--ink);
+  --color-ivory: var(--ivory);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-rose-soft: var(--rose-soft);
+  --color-sage: var(--sage);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+  --font-sans: var(--font-sans-stack);
+  --font-display: var(--font-display-stack);
+  --radius-card: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--ivory);
+  color: var(--ink);
+  scroll-padding-top: 8rem;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+#main-content {
+  scroll-margin-top: 8rem;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans-stack);
+}
+
+::selection {
+  background: var(--rose-soft);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--rose-deep);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.display-type {
+  font-family: var(--font-display-stack);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.page-shell {
+  width: min(100% - 2rem, 88rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    width: min(100% - 4rem, 88rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
