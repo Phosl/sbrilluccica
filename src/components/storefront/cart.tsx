@@ -192,6 +192,14 @@ export function CartDrawer({
 }) {
   const labels = copy[locale];
   const hasItems = cart.items.length > 0;
+  const itemLabel =
+    locale === "it"
+      ? cart.itemCount === 1
+        ? "articolo"
+        : "articoli"
+      : cart.itemCount === 1
+        ? "item"
+        : "items";
 
   return (
     <Drawer
@@ -199,7 +207,7 @@ export function CartDrawer({
       open={open}
       onClose={onClose}
       title={labels.cart}
-      description={hasItems ? `${cart.itemCount} ${locale === "it" ? "articoli" : "items"}` : undefined}
+      description={hasItems ? `${cart.itemCount} ${itemLabel}` : undefined}
       footer={
         hasItems ? (
           <div>
