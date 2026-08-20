@@ -14,7 +14,7 @@ import { localizedPath } from "@/lib/i18n/config";
 import { siteConfig } from "@/lib/site";
 
 function currentPathWithoutLocale(pathname: string): string {
-  const path = pathname.replace(/^\/en(?=\/|$)/, "");
+  const path = pathname.replace(/^\/(?:it|en)(?=\/|$)/, "");
   return path || "/";
 }
 
